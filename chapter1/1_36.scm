@@ -1,0 +1,17 @@
+(define tolerance 0.000001)
+
+(define (fixed-point f first-guess)
+  (define (close-enough? v1 v2)
+    (< (abs (- v1 v2)) tolerance))
+  (define (try guess n)
+    (newline)
+    (display "Step:")
+    (display n)
+    (newline)
+    (display guess)
+    (define (inc n) (+ n 1))
+    (let ((next (f guess)))
+      (if (close-enough? guess next )
+          next
+          (try next (inc n)))))
+   (try first-guess 0))
