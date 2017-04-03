@@ -1,0 +1,7 @@
+(define (make-rat n d)
+  (let ((a (abs n))
+        (b (abs d)))
+       (define g (gcd a b))
+       (cond ((AND (> n 0) (> d 0)) (cons (/ a g) (/ b g)))
+             ((AND (< n 0) (< d 0)) (cons (/ a g) (/ b g)))
+             (else (cons (- 0 (/ a g)) (/ b g))))))
