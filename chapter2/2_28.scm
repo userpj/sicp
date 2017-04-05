@@ -1,0 +1,6 @@
+(define (fringe items)
+  (define (iter items result)
+    (cond ((null? items) result)
+          ((not (pair? items)) (cons items result))
+          (else (fringe (car items) (fringe (cdr items) result)))))
+  (iter items '()))
